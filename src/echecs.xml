@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisation
+        nom="Enjoy Chess"
+>
+    <ListeTournois>
+        <Arbitres>
+            <Arbitre
+                id="1"
+                nom="Monsieur"
+                prenom="l'arbitre"
+            />
+            <Arbitre
+                id="2"
+                nom="l'autre Monsieur"
+                prenom="arbitre"
+            />
+        </Arbitres>
+        <Tournois
+            id="1"
+            nom="Mon tournois"
+        >
+            <Equipes>
+                <Equipe
+                    id="1"
+                    nom="equipe 1"
+                >
+                    <Joueurs>
+                        <Joueur
+                            noAVS="756.1234.5678.97"
+                            nom="Joueur 1"
+                            prenom=""
+                            ELO="1200"
+                        />
+                        <Joueur
+                            noAVS="756.1234.5679.97"
+                            nom="Joueur 2"
+                            prenom=""
+                            ELO="1100"
+                        />
+                    </Joueurs>
+                </Equipe>
+                <Equipe
+                    id="2"
+                    nom="equipe 2"
+                >
+                    <Joueurs>
+                        <Joueur
+                            noAVS="756.1234.5689.97"
+                            nom="Joueur 3"
+                            prenom=""
+                            ELO="1000"
+                        />
+                        <Joueur
+                            noAVS="756.1234.5479.97"
+                            nom="Joueur 4"
+                            prenom=""
+                            ELO="1010"
+                        />
+                    </Joueurs>
+                </Equipe>
+            </Equipes>
+
+            <Parties>
+                <Partie
+                    date="02-02-2002"
+                    heure="15:38"
+                >
+                    <Arbitre id="1"/>
+                    <Joueurs>
+                        <Joueur id="1"/>
+                        <Joueur id="2"/>
+                        <Joueur id="3"/>
+                        <Joueur id="4"/>
+                    </Joueurs>
+                    <Echiquiers>
+                        <Echiquier
+                            id="A"
+                            idJoueurBlanc="1"
+                            idJoueurNoir="3"
+                        >
+                            <Coups>
+                                <Coup
+                                    type="deplacement"
+                                    effet="echec au roi"
+                                >
+                                    <Mouvement
+                                            piece="pion"
+                                            depart="A2"
+                                            arrivee="A3"
+                                            pieceEliminee="cavalier"
+                                    >
+                                        <Promotion type="Tour"/>
+                                    </Mouvement>
+                                </Coup>
+                                <Coup
+                                    type="roque"
+                                    effet=""
+                                >
+                                    <Roque type="grand"/>
+                                </Coup>
+                            </Coups>
+                        </Echiquier>
+                        <Echiquier
+                            id="B"
+                            idJoueurBlanc="4"
+                            idJoueurNoir="2"
+                        >
+                            <Coups>
+                                <Coup
+                                    type="deplacement"
+                                    effet="echec au roi"
+                                >
+                                    <Mouvement
+                                        piece="pion"
+                                        depart="A2"
+                                        arrivee="A3"
+                                        pieceEliminee="cavalier"
+                                    >
+                                        <Promotion type="Tour"/>
+                                    </Mouvement>
+                                </Coup>
+                                <Coup
+                                    type="roque"
+                                    effet=""
+                                >
+                                    <Roque type="grand"/>
+                                </Coup>
+                            </Coups>
+                        </Echiquier>
+                    </Echiquiers>
+                    <Score
+                        A="0"
+                        B="2"
+                    />
+                </Partie>
+            </Parties>
+            <Vainqueur
+                idVainqueur="1"
+            />
+        </Tournois>
+    </ListeTournois>
+</Organisation>
