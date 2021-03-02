@@ -65,12 +65,12 @@
                     date="02-02-2002"
                     heure="15:38"
                 >
-                    <Arbitre id="1"/>
+                    <Arbitre IDREF="1"/>
                     <Joueurs>
-                        <Joueur id="1"/>
-                        <Joueur id="2"/>
-                        <Joueur id="3"/>
-                        <Joueur id="4"/>
+                        <Joueur IDREF="1"/>
+                        <Joueur IDREF="2"/>
+                        <Joueur IDREF="3"/>
+                        <Joueur IDREF="4"/>
                     </Joueurs>
                     <Echiquiers>
                         <Echiquier
