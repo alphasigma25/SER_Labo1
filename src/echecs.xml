@@ -1,7 +1,99 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Organisation
-        nom="Enjoy Chess"
->
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE Organisation [
+        <!ELEMENT Organisation (Nom, Joueurs, Arbitres, ListeTournois)>
+            <!ELEMENT Nom (#PCDATA)>
+            <!ELEMENT Joueurs (Joueur+)>
+                <!ELEMENT Joueur (Nom, Prenom, ELO)>
+                    <!ATTLIST Joueur noAVS ID #REQUIRED>
+                    <!ELEMENT Prenom (#PCDATA)>
+                    <!ELEMENT ELO (#PCDATA)>
+            <!ELEMENT Arbitres (Arbitre+)>
+                <!ELEMENT Arbitre (Nom, Prenom)>
+                    <!ATTLIST Arbitre id ID #REQUIRED>
+            <!ELEMENT ListeTournois (ArbitresRef, Tournois)*>
+                <!ELEMENT ArbitresRef (ArbitreRef+)>
+                    <!ELEMENT ArbitreRef EMPTY>
+                    <!ATTLIST ArbitreRef arbitreId IDREF #REQUIRED>
+                <!ELEMENT Tournois (Nom, Equipes, Parties, Vainqueur)>
+                    <!ATTLIST Tournois idTournois ID #REQUIRED>
+                        <!ELEMENT Equipes (Equipe, Equipe)>
+                            <!ELEMENT Equipe (Nom, JoueursRef)>
+                            <!ATTLIST Equipe id ID #REQUIRED>
+                            <!ELEMENT JoueursRef (JoueurRef, JoueurRef)>
+                                <!ELEMENT JoueurRef EMPTY>
+                                <!ATTLIST JoueurRef joueurId IDREF #REQUIRED>
+                        <!ELEMENT Parties (Partie+)>
+                            <!ELEMENT Partie (Date, Heure, ArbitreRef, Echiquiers, Score)>
+                                <!ELEMENT Date (#PCDATA)>
+                                <!ELEMENT Heure (#PCDATA)>
+                            <!ELEMENT Echiquiers (Echiquier, Echiquier)>
+                                <!ELEMENT Echiquier (JoueurBlanc, JoueurNoir, Coups)>
+                                    <!ATTLIST Echiquier id ID #REQUIRED>
+                                        <!ELEMENT JoueurBlanc EMPTY>
+                                            <!ATTLIST JoueurBlanc idJoueur IDREF #REQUIRED>
+                                        <!ELEMENT JoueurNoir EMPTY>
+                                        <!ATTLIST JoueurNoir idJoueur IDREF #REQUIRED>
+                                        <!ELEMENT Coups (Coup+)>
+                                            <!ELEMENT Coup (Deplacement|Roque)>
+                                                <!ELEMENT Deplacement (
+                                                                Depart,
+                                                                Arrivee,
+                                                                (Pion|Cavalier|Tour|Dame|Roi|Fou),
+                                                                PieceEliminee?,
+                                                                Effet?
+                                                        )>
+                                                    <!ELEMENT Depart (#PCDATA)>
+                                                    <!ELEMENT Arrivee (#PCDATA)>
+                                                    <!ELEMENT Pion (Promotion?)>
+                                                        <!ELEMENT Promotion (#PCDATA)>
+                                                    <!ELEMENT Cavalier EMPTY>
+                                                    <!ELEMENT Tour EMPTY>
+                                                    <!ELEMENT Dame EMPTY>
+                                                    <!ELEMENT Roi EMPTY>
+                                                    <!ELEMENT Fou EMPTY>
+                                                    <!ELEMENT PieceEliminee (#PCDATA)>
+                                                    <!ELEMENT Effet (#PCDATA)>
+                                                <!ELEMENT Roque (#PCDATA)>
+                        <!ELEMENT Score (EquipeRef, EquipeRef)>
+                        <!ELEMENT EquipeRef (#PCDATA)>
+                            <!ATTLIST EquipeRef idEquipe IDREF #REQUIRED>
+                    <!ELEMENT Vainqueur EMPTY>
+                    <!ATTLIST Vainqueur idEquipe IDREF #REQUIRED>
+            ]>
+<Organisation>
+    <Nom>Enjoy Chess</Nom>
+    <Joueurs>
+        <Joueur noAVS="756.1234.5678.97">
+            <Nom>Joueur 1</Nom>
+            <Prenom> </Prenom>
+            <ELO>1200</ELO>
+        </Joueur>
+        <Joueur noAVS="756.1234.5679.97">
+            <Nom>Joueur 2</Nom>
+            <Prenom> </Prenom>
+            <ELO>1200</ELO>
+        </Joueur>
+        <Joueur noAVS="756.1234.5689.97">
+            <Nom>Joueur 3</Nom>
+            <Prenom> </Prenom>
+            <ELO>1200</ELO>
+        </Joueur>
+        <Joueur noAVS="756.1234.5479.97">
+            <Nom>Joueur 4</Nom>
+            <Prenom> </Prenom>
+            <ELO>1200</ELO>
+        </Joueur>
+    </Joueurs>
+    <Arbitres>
+        <Arbitre id="A1">
+            <Nom>Monsieur</Nom>
+            <Prenom>l'arbitre</Prenom>
+        </Arbitre>
+        <Arbitre id="A2">
+            <Nom>l'autre Monsieur</Nom>
+            <Prenom>l'arbitre</Prenom>
+        </Arbitre>
+    </Arbitres>
     <ListeTournois>
         <ArbitresRef>
             <ArbitreRef arbitreId="A1"/>
@@ -10,24 +102,12 @@
         <Tournois idTournois="T1">
             <Nom>Mon tournois</Nom>
             <Equipes>
-                <Equipe
-                    id="1"
-                    nom="equipe 1"
-                >
-                    <Joueurs>
-                        <Joueur
-                            noAVS="756.1234.5678.97"
-                            nom="Joueur 1"
-                            prenom=""
-                            ELO="1200"
-                        />
-                        <Joueur
-                            noAVS="756.1234.5679.97"
-                            nom="Joueur 2"
-                            prenom=""
-                            ELO="1100"
-                        />
-                    </Joueurs>
+                <Equipe id="E1">
+                    <Nom>equipe 1</Nom>
+                    <JoueursRef>
+                        <JoueurRef joueurId="756.1234.5678.97"/>
+                        <JoueurRef joueurId="756.1234.5679.97"/>
+                    </JoueursRef>
                 </Equipe>
                 <Equipe id="E2">
                     <Nom>equipe 2</Nom>
@@ -82,15 +162,13 @@
                             </Coups>
                         </Echiquier>
                     </Echiquiers>
-                    <Score
-                        A="0"
-                        B="2"
-                    />
+                    <Score>
+                        <EquipeRef idEquipe="E1">0</EquipeRef>
+                        <EquipeRef idEquipe="E2">2</EquipeRef>
+                    </Score>
                 </Partie>
             </Parties>
-            <Vainqueur
-                idVainqueur="1"
-            />
+            <Vainqueur idEquipe="E2"/>
         </Tournois>
     </ListeTournois>
 </Organisation>
