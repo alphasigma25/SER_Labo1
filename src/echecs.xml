@@ -3,22 +3,12 @@
         nom="Enjoy Chess"
 >
     <ListeTournois>
-        <Arbitres>
-            <Arbitre
-                id="1"
-                nom="Monsieur"
-                prenom="l'arbitre"
-            />
-            <Arbitre
-                id="2"
-                nom="l'autre Monsieur"
-                prenom="arbitre"
-            />
-        </Arbitres>
-        <Tournois
-            id="1"
-            nom="Mon tournois"
-        >
+        <ArbitresRef>
+            <ArbitreRef arbitreId="A1"/>
+            <ArbitreRef arbitreId="A2"/>
+        </ArbitresRef>
+        <Tournois idTournois="T1">
+            <Nom>Mon tournois</Nom>
             <Equipes>
                 <Equipe
                     id="1"
@@ -39,91 +29,55 @@
                         />
                     </Joueurs>
                 </Equipe>
-                <Equipe
-                    id="2"
-                    nom="equipe 2"
-                >
-                    <Joueurs>
-                        <Joueur
-                            noAVS="756.1234.5689.97"
-                            nom="Joueur 3"
-                            prenom=""
-                            ELO="1000"
-                        />
-                        <Joueur
-                            noAVS="756.1234.5479.97"
-                            nom="Joueur 4"
-                            prenom=""
-                            ELO="1010"
-                        />
-                    </Joueurs>
+                <Equipe id="E2">
+                    <Nom>equipe 2</Nom>
+                    <JoueursRef>
+                        <JoueurRef joueurId="756.1234.5689.97"/>
+                        <JoueurRef joueurId="756.1234.5479.97"/>
+                    </JoueursRef>
                 </Equipe>
             </Equipes>
-
             <Parties>
-                <Partie
-                    date="02-02-2002"
-                    heure="15:38"
-                >
-                    <Arbitre IDREF="1"/>
-                    <Joueurs>
-                        <Joueur IDREF="1"/>
-                        <Joueur IDREF="2"/>
-                        <Joueur IDREF="3"/>
-                        <Joueur IDREF="4"/>
-                    </Joueurs>
+                <Partie>
+                    <Date>02-02-2002</Date>
+                    <Heure>15:38</Heure>
+                    <ArbitreRef arbitreId="A1"/>
                     <Echiquiers>
-                        <Echiquier
-                            id="A"
-                            idJoueurBlanc="1"
-                            idJoueurNoir="3"
-                        >
+                        <Echiquier id="EC1">
+                            <JoueurBlanc idJoueur="756.1234.5678.97"/>
+                            <JoueurNoir idJoueur="756.1234.5689.97"/>
                             <Coups>
-                                <Coup
-                                    type="deplacement"
-                                    effet="echec au roi"
-                                >
-                                    <Mouvement
-                                            piece="pion"
-                                            depart="A2"
-                                            arrivee="A3"
-                                            pieceEliminee="cavalier"
-                                    >
-                                        <Promotion type="Tour"/>
-                                    </Mouvement>
+                                <Coup>
+                                    <Deplacement>
+                                        <Depart>A2</Depart>
+                                        <Arrivee>A3</Arrivee>
+                                        <Pion>
+                                            <Promotion>Tour</Promotion>
+                                        </Pion>
+                                        <PieceEliminee>cavalier</PieceEliminee>
+                                        <Effet>échec au roi</Effet>
+                                    </Deplacement>
                                 </Coup>
-                                <Coup
-                                    type="roque"
-                                    effet=""
-                                >
-                                    <Roque type="grand"/>
+                                <Coup>
+                                    <Roque>Grand Roque</Roque>
                                 </Coup>
                             </Coups>
                         </Echiquier>
-                        <Echiquier
-                            id="B"
-                            idJoueurBlanc="4"
-                            idJoueurNoir="2"
-                        >
+                        <Echiquier id="EC2">
+                            <JoueurBlanc idJoueur="756.1234.5479.97"/>
+                            <JoueurNoir idJoueur="756.1234.5679.97"/>
                             <Coups>
-                                <Coup
-                                    type="deplacement"
-                                    effet="echec au roi"
-                                >
-                                    <Mouvement
-                                        piece="pion"
-                                        depart="A2"
-                                        arrivee="A3"
-                                        pieceEliminee="cavalier"
-                                    >
-                                        <Promotion type="Tour"/>
-                                    </Mouvement>
+                                <Coup>
+                                    <Deplacement>
+                                        <Depart>B2</Depart>
+                                        <Arrivee>A3</Arrivee>
+                                        <Cavalier/>
+                                        <PieceEliminee>tour</PieceEliminee>
+                                        <Effet>Partie nulle</Effet>
+                                    </Deplacement>
                                 </Coup>
-                                <Coup
-                                    type="roque"
-                                    effet=""
-                                >
-                                    <Roque type="grand"/>
+                                <Coup>
+                                    <Roque>Grand Roque</Roque>
                                 </Coup>
                             </Coups>
                         </Echiquier>

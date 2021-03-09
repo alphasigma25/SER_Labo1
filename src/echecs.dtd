@@ -1,0 +1,54 @@
+<!DOCTYPE Organisation [
+        <!ELEMENT Organisation (Nom, Joueurs, Arbitres, ListeTournois)>
+        <!ELEMENT Nom (#PCDATA)>
+        <!ELEMENT Joueurs (Joueur+)>
+        <!ELEMENT Joueur (Nom, Prenom, ELO)>
+        <!ATTLIST Joueur noAVS ID #REQUIRED>
+        <!ELEMENT Nom (#PCDATA)>
+        <!ELEMENT Prenom (#PCDATA)>
+        <!ELEMENT ELO (#PCDATA)>
+        <!ELEMENT Arbitres (Arbitre+)>
+        <!ELEMENT Arbitre (Nom, Prenom)>
+        <!ATTLIST Arbitre id ID #REQUIRED>
+        <!ELEMENT Nom (#PCDATA)>
+        <!ELEMENT Prenom (#PCDATA)>
+        <!ELEMENT ListeTournois (Arbitres, Tournois)*>
+        <!ELEMENT Arbitres (Arbitre+)>
+        <!ELEMENT Arbitre EMPTY>
+        <!ATTLIST arbitreId IDREF #REQUIRED>
+        <!ELEMENT Tournois (Nom, Equipes, Parties, Vainqueur)>
+        <!ATTLIST Tournois
+                idTournois ID #REQUIRED>
+        <!ELEMENT Equipes (Equipe)*>
+        <!ELEMENT Equipe (Nom|Joueurs)*>
+        <!ATTLIST Equipe
+                id CDATA #IMPLIED
+                idEquipe CDATA #IMPLIED>
+        <!ELEMENT Parties (Partie)*>
+        <!ELEMENT Partie (Date|Heure|Arbitre|Echiquiers|Score)*>
+        <!ELEMENT Date (#PCDATA)>
+        <!ELEMENT Heure (#PCDATA)>
+        <!ELEMENT Echiquiers (Echiquier)*>
+        <!ELEMENT Echiquier (JoueurBlanc|JoueurNoir|Coups)*>
+        <!ATTLIST Echiquier
+                id CDATA #REQUIRED>
+        <!ELEMENT JoueurBlanc (#PCDATA)>
+        <!ATTLIST JoueurBlanc idJoueur CDATA #REQUIRED>
+        <!ELEMENT JoueurNoir (#PCDATA)>
+        <!ATTLIST JoueurNoir idJoueur CDATA #REQUIRED>
+        <!ELEMENT Coups (Coup)*>
+        <!ELEMENT Coup (Deplacement|Roque)*>
+        <!ELEMENT Deplacement (Depart|Arrivee|Pion|PieceEliminee|Effet|Chevalier)*>
+        <!ELEMENT Depart (#PCDATA)>
+        <!ELEMENT Arrivee (#PCDATA)>
+        <!ELEMENT Pion (Promotion)*>
+        <!ELEMENT Promotion (#PCDATA)>
+        <!ELEMENT PieceEliminee (#PCDATA)>
+        <!ELEMENT Effet (#PCDATA)>
+        <!ELEMENT Chevalier (#PCDATA)>
+        <!ELEMENT Roque (#PCDATA)>
+        <!ELEMENT Score (Equipe)*>
+        <!ELEMENT Vainqueur (#PCDATA)>
+        <!ATTLIST Vainqueur
+                idEquipe CDATA #REQUIRED>
+        ]>
