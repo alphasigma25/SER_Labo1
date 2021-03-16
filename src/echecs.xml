@@ -46,6 +46,8 @@
         <Tournois idTournois="T1">
             <Nom>Mon tournois</Nom>
             <Equipes>
+                <!-- TODO il faudrait des IDREF pour les équipes si on veut qu'une équipe
+                puisse participer à plusieurs tournoirs -->
                 <Equipe id="E1">
                     <Nom>equipe 1</Nom>
                     <JoueursRef>
@@ -67,6 +69,8 @@
                     <Heure>15:38</Heure>
                     <ArbitreRef arbitreId="A1"/>
                     <Echiquiers>
+                        <!-- TODO il faudrait des IDREF pour les Echiquies si on veut pouvoir réutiliser un échiquier
+                         d'une partie à l'autre -->
                         <Echiquier id="EC1">
                             <JoueurBlanc idJoueur="J1"/>
                             <JoueurNoir idJoueur="J3"/>
