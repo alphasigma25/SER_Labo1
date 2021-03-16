@@ -9,7 +9,7 @@
         <!ELEMENT Arbitres (Arbitre+)>
         <!ELEMENT Arbitre (Nom, Prenom)>
         <!ATTLIST Arbitre id ID #REQUIRED>
-        <!ELEMENT ListeTournois (ArbitresRef, Tournois)*>
+        <!ELEMENT ListeTournois (ArbitresRef, Tournois*)>
         <!ELEMENT ArbitresRef (ArbitreRef+)>
         <!ELEMENT ArbitreRef EMPTY>
         <!ATTLIST ArbitreRef arbitreId IDREF #REQUIRED>

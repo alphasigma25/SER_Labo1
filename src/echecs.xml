@@ -111,6 +111,175 @@
                         <EquipeRef idEquipe="E2">2</EquipeRef>
                     </Score>
                 </Partie>
+                <Partie>
+                    <Date>02-02-2002</Date>
+                    <Heure>15:38</Heure>
+                    <ArbitreRef arbitreId="A1"/>
+                    <Echiquiers>
+                        <Echiquier id="EC3">
+                            <JoueurBlanc idJoueur="J1"/>
+                            <JoueurNoir idJoueur="J3"/>
+                            <Coups>
+                                <Coup>
+                                    <Deplacement>
+                                        <Depart>A2</Depart>
+                                        <Arrivee>A3</Arrivee>
+                                        <Pion>
+                                            <Promotion>Tour</Promotion>
+                                        </Pion>
+                                        <PieceEliminee>cavalier</PieceEliminee>
+                                        <Effet>échec au roi</Effet>
+                                    </Deplacement>
+                                </Coup>
+                                <Coup>
+                                    <Roque>Grand Roque</Roque>
+                                </Coup>
+                            </Coups>
+                        </Echiquier>
+                        <Echiquier id="EC4">
+                            <JoueurBlanc idJoueur="J4"/>
+                            <JoueurNoir idJoueur="J2"/>
+                            <Coups>
+                                <Coup>
+                                    <Deplacement>
+                                        <Depart>B2</Depart>
+                                        <Arrivee>A3</Arrivee>
+                                        <Cavalier/>
+                                        <PieceEliminee>tour</PieceEliminee>
+                                        <Effet>Partie nulle</Effet>
+                                    </Deplacement>
+                                </Coup>
+                                <Coup>
+                                    <Roque>Grand Roque</Roque>
+                                </Coup>
+                            </Coups>
+                        </Echiquier>
+                    </Echiquiers>
+                    <Score>
+                        <EquipeRef idEquipe="E1">0</EquipeRef>
+                        <EquipeRef idEquipe="E2">2</EquipeRef>
+                    </Score>
+                </Partie>
+            </Parties>
+            <Vainqueur idEquipe="E2"/>
+        </Tournois>
+        <Tournois idTournois="T2">
+            <Nom>Mon tournois</Nom>
+            <Equipes>
+                <Equipe id="E3">
+                    <Nom>equipe 1</Nom>
+                    <JoueursRef>
+                        <JoueurRef joueurId="J1"/>
+                        <JoueurRef joueurId="J2"/>
+                    </JoueursRef>
+                </Equipe>
+                <Equipe id="E4">
+                    <Nom>equipe 2</Nom>
+                    <JoueursRef>
+                        <JoueurRef joueurId="J3"/>
+                        <JoueurRef joueurId="J4"/>
+                    </JoueursRef>
+                </Equipe>
+            </Equipes>
+            <Parties>
+                <Partie>
+                    <Date>02-02-2002</Date>
+                    <Heure>15:38</Heure>
+                    <ArbitreRef arbitreId="A1"/>
+                    <Echiquiers>
+                        <Echiquier id="EC5">
+                            <JoueurBlanc idJoueur="J1"/>
+                            <JoueurNoir idJoueur="J3"/>
+                            <Coups>
+                                <Coup>
+                                    <Deplacement>
+                                        <Depart>A2</Depart>
+                                        <Arrivee>A3</Arrivee>
+                                        <Pion>
+                                            <Promotion>Tour</Promotion>
+                                        </Pion>
+                                        <PieceEliminee>cavalier</PieceEliminee>
+                                        <Effet>échec au roi</Effet>
+                                    </Deplacement>
+                                </Coup>
+                                <Coup>
+                                    <Roque>Grand Roque</Roque>
+                                </Coup>
+                            </Coups>
+                        </Echiquier>
+                        <Echiquier id="EC6">
+                            <JoueurBlanc idJoueur="J4"/>
+                            <JoueurNoir idJoueur="J2"/>
+                            <Coups>
+                                <Coup>
+                                    <Deplacement>
+                                        <Depart>B2</Depart>
+                                        <Arrivee>A3</Arrivee>
+                                        <Cavalier/>
+                                        <PieceEliminee>tour</PieceEliminee>
+                                        <Effet>Partie nulle</Effet>
+                                    </Deplacement>
+                                </Coup>
+                                <Coup>
+                                    <Roque>Grand Roque</Roque>
+                                </Coup>
+                            </Coups>
+                        </Echiquier>
+                    </Echiquiers>
+                    <Score>
+                        <EquipeRef idEquipe="E1">0</EquipeRef>
+                        <EquipeRef idEquipe="E2">2</EquipeRef>
+                    </Score>
+                </Partie>
+                <Partie>
+                    <Date>02-02-2002</Date>
+                    <Heure>15:38</Heure>
+                    <ArbitreRef arbitreId="A1"/>
+                    <Echiquiers>
+                        <Echiquier id="EC7">
+                            <JoueurBlanc idJoueur="J1"/>
+                            <JoueurNoir idJoueur="J3"/>
+                            <Coups>
+                                <Coup>
+                                    <Deplacement>
+                                        <Depart>A2</Depart>
+                                        <Arrivee>A3</Arrivee>
+                                        <Pion>
+                                            <Promotion>Tour</Promotion>
+                                        </Pion>
+                                        <PieceEliminee>cavalier</PieceEliminee>
+                                        <Effet>échec au roi</Effet>
+                                    </Deplacement>
+                                </Coup>
+                                <Coup>
+                                    <Roque>Grand Roque</Roque>
+                                </Coup>
+                            </Coups>
+                        </Echiquier>
+                        <Echiquier id="EC8">
+                            <JoueurBlanc idJoueur="J4"/>
+                            <JoueurNoir idJoueur="J2"/>
+                            <Coups>
+                                <Coup>
+                                    <Deplacement>
+                                        <Depart>B2</Depart>
+                                        <Arrivee>A3</Arrivee>
+                                        <Cavalier/>
+                                        <PieceEliminee>tour</PieceEliminee>
+                                        <Effet>Partie nulle</Effet>
+                                    </Deplacement>
+                                </Coup>
+                                <Coup>
+                                    <Roque>Grand Roque</Roque>
+                                </Coup>
+                            </Coups>
+                        </Echiquier>
+                    </Echiquiers>
+                    <Score>
+                        <EquipeRef idEquipe="E1">0</EquipeRef>
+                        <EquipeRef idEquipe="E2">2</EquipeRef>
+                    </Score>
+                </Partie>
             </Parties>
             <Vainqueur idEquipe="E2"/>
         </Tournois>
