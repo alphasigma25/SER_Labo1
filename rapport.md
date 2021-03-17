@@ -12,7 +12,7 @@ Dans le cadre de ce labo, la demande était de modéliser des trounois d'échecs
 ## DTD
 Pour voir la dtd veuillez vous référer au fichier en annexe: `echecs.dtd`
 
-### Explication des choix
+### Explication des choix "simples"
 Pour le choix de la mise en forme du contenu, on a décidé qu'on allait créer des balises pour tout ce qui concerne 
 les informations de type logique informatique en tant qu'attribut et tout le reste sous forme de balises.
 
@@ -20,9 +20,51 @@ En ce qui concerne la validation des différentes balises et attributs on a comm
 dépendances simples mentionnées dans la donnée. ex: Un arbitre a un nom et un prenom => `<!ELEMENT Arbitre (Nom, 
 Prenom)>`
 
-Pour les cas les plus complexes on a procédé comme ceci:
-* Concernant les dépendances qui nécessitent exactement n elements (n>1) on a décidé de faire de cette façon:
-    ex:
+### Explication des choix "complexes"
+
+#### Gestion Equipes
+Pour la gestion des equipes nous avons les contraintes suivantes:
+* une partie est jouée entre 2 équipes
+* chaque équipe a 2 joueurs
+* chaque membre de l'équipe joue sur un échiquier différent
+* chaque équipe joue sur les deux camps
+
+Pour résoudre notre ces contraintes notre approche a été la suivante. 
+
+En ce qui concerne la formation des équipes, elles sont définies a l'intérieur de chaque tournois étant donné qu'elles peuvent jouer plusieurs parties
+
+Ensuite pour résoudre les 3 contraintes restantes, nous avons choisi de placer une balise JoueurBlanc et JoueurNoir sur chaque échiquier d'une partie. Explication:
+* Une partie est jouée entre 2 équipes: 2 équipes = 4 joueurs, ce qui nous fait 2 joueurs blancs et 2 joueurs noirs
+* chaque membre joue sur un échiquier différent: Pour une équipe on aurait le joueur 1 qui joue sur l'échiquier 1 en blanc, et le joueur 2 qui joue sur l'échiquier 2 en noir.
+* chaque équipe joue sur les deux camps: même exemple que ci-dessus
+
+Avec cette approche on a pas directement on évite la redondance de devoir reporter les équipes dans chaque partie étant donné qu'on va juste gérer les références sur les identifiants des joueurs.
+
+### Gestion du score
+Pour cette partie on a décidé de mettre des balise qui référencent les 2 équipes de la partie en mettant le score en tant que contenu de la balise.
+
+### Gestion des coups
+Premier point de logique on peut voir qu'il y a deux catégories distinctes de coups:
+* les déplacements: ce type de coups a une logique interne complexe
+* Les roque: dont la seule information qu'il contient c'est s'il s'agit un `Grand Roque` ou `Petit Roque`
+
+Ceci nous permet de faire un premier tri en mettant qu'un coup contient soit un `<Deplacement>` soit un `<Roque>`
+
+Ensuite si on s'interresse aux déplacemments on a les informations suivantes:
+1. La piece qui a été jouée
+1. La case sur laquelle la pièce c'est rendue
+1. La case depuis laquelle la pièce est partie
+1. La pièce éliminée s'il y en a une
+1. Une situation spéciale s'il y en a une
+
+Pour les informations 2 a 5 il s'agit d'une modélisation simple comme explique dans le point `Explication des choix "simples"` donc on ne va pas s'attarder la dessus.
+
+En revanche en ce qui concerne la pièce qui a été jouée on a encore un cas complexe à résoudre. En effet selon la piéce qui est jouée on peut s'attendre a un comportement différent c'est pourquoi on a décidé de créer un objet qui correspond a chaque piece ce qui fait qu'un déplacement n'aura pas une balise pièce mais une balise de type `(Tour|Cavalier|Fou|Dame|Roi|Pion)`. De cette façon on permet de gérer pour chaque pièce sont comportement spécifique.
+
+Par exemple pour le Pion nous avons la possibilité d'avoir une promotion qui peut être facilement modélisée à l'aide de cette approche.
+
+### Gestion du vainqueur du tournois
+Pour cette partie on a décidé de mettre une balise Vainqueur qui référence simplement l'équipe qui a remporté le tournois.
 
 ## XML
 Voir fichier en annexe: `echecs.xml`
