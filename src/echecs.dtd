@@ -26,8 +26,9 @@
         <!ELEMENT Date (#PCDATA)>
         <!ELEMENT Heure (#PCDATA)>
         <!ELEMENT Echiquiers (Echiquier, Echiquier)>
-        <!ELEMENT Echiquier (JoueurBlanc, JoueurNoir, Coups)>
-        <!ATTLIST Echiquier id ID #REQUIRED>
+        <!ELEMENT Echiquier ((premier|deuxieme), JoueurBlanc, JoueurNoir, Coups)>
+        <!ELEMENT premier EMPTY>
+        <!ELEMENT deuxieme EMPTY>
         <!ELEMENT JoueurBlanc EMPTY>
         <!ATTLIST JoueurBlanc idJoueur IDREF #REQUIRED>
         <!ELEMENT JoueurNoir EMPTY>
@@ -44,15 +45,20 @@
         <!ELEMENT Depart (#PCDATA)>
         <!ELEMENT Arrivee (#PCDATA)>
         <!ELEMENT Pion (Promotion?)>
-        <!ELEMENT Promotion (#PCDATA)>
+        <!ELEMENT Promotion (Cavalier|Tour|Dame|Fou)>
         <!ELEMENT Cavalier EMPTY>
         <!ELEMENT Tour EMPTY>
         <!ELEMENT Dame EMPTY>
         <!ELEMENT Roi EMPTY>
         <!ELEMENT Fou EMPTY>
-        <!ELEMENT PieceEliminee (#PCDATA)>
-        <!ELEMENT Effet (#PCDATA)>
-        <!ELEMENT Roque (#PCDATA)>
+        <!ELEMENT PieceEliminee (Pion|Cavalier|Tour|Dame|Fou)>
+        <!ELEMENT Effet (EchecAuRoi|EchecEtMat|PartieNulle)>
+        <!ELEMENT EchecAuRoi EMPTY>
+        <!ELEMENT EchecEtMat EMPTY>
+        <!ELEMENT PartieNulle EMPTY>
+        <!ELEMENT Roque (Petit|Grand)>
+        <!ELEMENT Petit EMPTY>
+        <!ELEMENT Grand EMPTY>
         <!ELEMENT Score (EquipeRef, EquipeRef)>
         <!ELEMENT EquipeRef (#PCDATA)>
         <!ATTLIST EquipeRef idEquipe IDREF #REQUIRED>

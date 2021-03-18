@@ -46,8 +46,6 @@
         <Tournois idTournois="T1">
             <Nom>Mon tournois</Nom>
             <Equipes>
-                <!-- TODO il faudrait des IDREF pour les équipes si on veut qu'une équipe
-                puisse participer à plusieurs tournoirs -->
                 <Equipe id="E1">
                     <Nom>equipe 1</Nom>
                     <JoueursRef>
@@ -69,9 +67,8 @@
                     <Heure>15:38</Heure>
                     <ArbitreRef arbitreId="A1"/>
                     <Echiquiers>
-                        <!-- TODO il faudrait des IDREF pour les Echiquies si on veut pouvoir réutiliser un échiquier
-                         d'une partie à l'autre -->
-                        <Echiquier id="EC1">
+                        <Echiquier>
+                            <premier/>
                             <JoueurBlanc idJoueur="J1"/>
                             <JoueurNoir idJoueur="J3"/>
                             <Coups>
@@ -80,18 +77,19 @@
                                         <Depart>A2</Depart>
                                         <Arrivee>A3</Arrivee>
                                         <Pion>
-                                            <Promotion>Tour</Promotion>
+                                            <Promotion><Tour/></Promotion>
                                         </Pion>
-                                        <PieceEliminee>cavalier</PieceEliminee>
-                                        <Effet>échec au roi</Effet>
+                                        <PieceEliminee><Pion/></PieceEliminee>
+                                        <Effet><EchecAuRoi/></Effet>
                                     </Deplacement>
                                 </Coup>
                                 <Coup>
-                                    <Roque>Grand Roque</Roque>
+                                    <Roque><Grand/></Roque>
                                 </Coup>
                             </Coups>
                         </Echiquier>
-                        <Echiquier id="EC2">
+                        <Echiquier>
+                            <deuxieme/>
                             <JoueurBlanc idJoueur="J4"/>
                             <JoueurNoir idJoueur="J2"/>
                             <Coups>
@@ -100,12 +98,12 @@
                                         <Depart>B2</Depart>
                                         <Arrivee>A3</Arrivee>
                                         <Cavalier/>
-                                        <PieceEliminee>tour</PieceEliminee>
-                                        <Effet>Partie nulle</Effet>
+                                        <PieceEliminee><Dame/></PieceEliminee>
+                                        <Effet><PartieNulle/></Effet>
                                     </Deplacement>
                                 </Coup>
                                 <Coup>
-                                    <Roque>Grand Roque</Roque>
+                                    <Roque><Petit/></Roque>
                                 </Coup>
                             </Coups>
                         </Echiquier>
@@ -120,7 +118,8 @@
                     <Heure>15:38</Heure>
                     <ArbitreRef arbitreId="A1"/>
                     <Echiquiers>
-                        <Echiquier id="EC3">
+                        <Echiquier>
+                            <premier/>
                             <JoueurBlanc idJoueur="J1"/>
                             <JoueurNoir idJoueur="J3"/>
                             <Coups>
@@ -128,19 +127,23 @@
                                     <Deplacement>
                                         <Depart>A2</Depart>
                                         <Arrivee>A3</Arrivee>
-                                        <Pion>
-                                            <Promotion>Tour</Promotion>
-                                        </Pion>
-                                        <PieceEliminee>cavalier</PieceEliminee>
-                                        <Effet>échec au roi</Effet>
+                                        <Pion/>
+                                        <PieceEliminee><Cavalier/></PieceEliminee>
                                     </Deplacement>
                                 </Coup>
                                 <Coup>
-                                    <Roque>Grand Roque</Roque>
+                                    <Deplacement>
+                                        <Depart>F2</Depart>
+                                        <Arrivee>F3</Arrivee>
+                                        <Pion/>
+                                        <PieceEliminee><Cavalier/></PieceEliminee>
+                                        <Effet><EchecEtMat/></Effet>
+                                    </Deplacement>
                                 </Coup>
                             </Coups>
                         </Echiquier>
-                        <Echiquier id="EC4">
+                        <Echiquier>
+                            <deuxieme/>
                             <JoueurBlanc idJoueur="J4"/>
                             <JoueurNoir idJoueur="J2"/>
                             <Coups>
@@ -149,12 +152,16 @@
                                         <Depart>B2</Depart>
                                         <Arrivee>A3</Arrivee>
                                         <Cavalier/>
-                                        <PieceEliminee>tour</PieceEliminee>
-                                        <Effet>Partie nulle</Effet>
+                                        <PieceEliminee><Tour/></PieceEliminee>
                                     </Deplacement>
                                 </Coup>
                                 <Coup>
-                                    <Roque>Grand Roque</Roque>
+                                    <Deplacement>
+                                        <Depart>C2</Depart>
+                                        <Arrivee>F5</Arrivee>
+                                        <Fou/>
+                                        <PieceEliminee><Tour/></PieceEliminee>
+                                    </Deplacement>
                                 </Coup>
                             </Coups>
                         </Echiquier>
@@ -168,17 +175,17 @@
             <Vainqueur idEquipe="E2"/>
         </Tournois>
         <Tournois idTournois="T2">
-            <Nom>Mon tournois</Nom>
+            <Nom>Super tournois</Nom>
             <Equipes>
                 <Equipe id="E3">
-                    <Nom>equipe 1</Nom>
+                    <Nom>débutants chanceux</Nom>
                     <JoueursRef>
                         <JoueurRef joueurId="J1"/>
                         <JoueurRef joueurId="J2"/>
                     </JoueursRef>
                 </Equipe>
                 <Equipe id="E4">
-                    <Nom>equipe 2</Nom>
+                    <Nom>experts malchanceux</Nom>
                     <JoueursRef>
                         <JoueurRef joueurId="J3"/>
                         <JoueurRef joueurId="J4"/>
@@ -191,27 +198,25 @@
                     <Heure>15:38</Heure>
                     <ArbitreRef arbitreId="A1"/>
                     <Echiquiers>
-                        <Echiquier id="EC5">
+                        <Echiquier>
+                            <premier/>
                             <JoueurBlanc idJoueur="J1"/>
                             <JoueurNoir idJoueur="J3"/>
                             <Coups>
                                 <Coup>
                                     <Deplacement>
-                                        <Depart>A2</Depart>
-                                        <Arrivee>A3</Arrivee>
-                                        <Pion>
-                                            <Promotion>Tour</Promotion>
-                                        </Pion>
-                                        <PieceEliminee>cavalier</PieceEliminee>
-                                        <Effet>échec au roi</Effet>
+                                        <Depart>E2</Depart>
+                                        <Arrivee>E4</Arrivee>
+                                        <Pion/>
                                     </Deplacement>
                                 </Coup>
                                 <Coup>
-                                    <Roque>Grand Roque</Roque>
+                                    <Roque><Petit/></Roque>
                                 </Coup>
                             </Coups>
                         </Echiquier>
-                        <Echiquier id="EC6">
+                        <Echiquier>
+                            <deuxieme/>
                             <JoueurBlanc idJoueur="J4"/>
                             <JoueurNoir idJoueur="J2"/>
                             <Coups>
@@ -220,12 +225,16 @@
                                         <Depart>B2</Depart>
                                         <Arrivee>A3</Arrivee>
                                         <Cavalier/>
-                                        <PieceEliminee>tour</PieceEliminee>
-                                        <Effet>Partie nulle</Effet>
+                                        <PieceEliminee><Tour/></PieceEliminee>
                                     </Deplacement>
                                 </Coup>
                                 <Coup>
-                                    <Roque>Grand Roque</Roque>
+                                    <Deplacement>
+                                        <Depart>E2</Depart>
+                                        <Arrivee>D3</Arrivee>
+                                        <Fou/>
+                                        <PieceEliminee><Tour/></PieceEliminee>
+                                    </Deplacement>
                                 </Coup>
                             </Coups>
                         </Echiquier>
@@ -240,7 +249,8 @@
                     <Heure>15:38</Heure>
                     <ArbitreRef arbitreId="A1"/>
                     <Echiquiers>
-                        <Echiquier id="EC7">
+                        <Echiquier>
+                            <premier/>
                             <JoueurBlanc idJoueur="J1"/>
                             <JoueurNoir idJoueur="J3"/>
                             <Coups>
@@ -249,18 +259,25 @@
                                         <Depart>A2</Depart>
                                         <Arrivee>A3</Arrivee>
                                         <Pion>
-                                            <Promotion>Tour</Promotion>
                                         </Pion>
-                                        <PieceEliminee>cavalier</PieceEliminee>
-                                        <Effet>échec au roi</Effet>
+                                        <PieceEliminee><Cavalier/></PieceEliminee>
                                     </Deplacement>
                                 </Coup>
                                 <Coup>
-                                    <Roque>Grand Roque</Roque>
+                                    <Deplacement>
+                                        <Depart>A2</Depart>
+                                        <Arrivee>A3</Arrivee>
+                                        <Cavalier/>
+                                        <PieceEliminee><Cavalier/></PieceEliminee>
+                                        <Effet>
+                                            <EchecEtMat/>
+                                        </Effet>
+                                    </Deplacement>
                                 </Coup>
                             </Coups>
                         </Echiquier>
-                        <Echiquier id="EC8">
+                        <Echiquier>
+                            <deuxieme/>
                             <JoueurBlanc idJoueur="J4"/>
                             <JoueurNoir idJoueur="J2"/>
                             <Coups>
@@ -269,19 +286,23 @@
                                         <Depart>B2</Depart>
                                         <Arrivee>A3</Arrivee>
                                         <Cavalier/>
-                                        <PieceEliminee>tour</PieceEliminee>
-                                        <Effet>Partie nulle</Effet>
+                                        <PieceEliminee><Fou/></PieceEliminee>
                                     </Deplacement>
                                 </Coup>
                                 <Coup>
-                                    <Roque>Grand Roque</Roque>
+                                    <Deplacement>
+                                        <Depart>B2</Depart>
+                                        <Arrivee>A3</Arrivee>
+                                        <Cavalier/>
+                                        <PieceEliminee><Fou/></PieceEliminee>
+                                    </Deplacement>
                                 </Coup>
                             </Coups>
                         </Echiquier>
                     </Echiquiers>
                     <Score>
-                        <EquipeRef idEquipe="E1">0</EquipeRef>
-                        <EquipeRef idEquipe="E2">2</EquipeRef>
+                        <EquipeRef idEquipe="E1">1.5</EquipeRef>
+                        <EquipeRef idEquipe="E2">0.5</EquipeRef>
                     </Score>
                 </Partie>
             </Parties>
