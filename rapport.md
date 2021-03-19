@@ -52,10 +52,10 @@ Ceci nous permet de faire un premier tri en mettant qu'un coup contient soit un 
 
 Ensuite si on s'intéresse aux déplacements on a les informations suivantes :
 1. La piece qui a été jouée
-2. La case sur laquelle la pièce c'est rendue
-3. La case depuis laquelle la pièce est partie
-4. La pièce éliminée s'il y en a une
-5. Une situation spéciale s'il y en a une
+1. La case sur laquelle la pièce c'est rendue
+1. La case depuis laquelle la pièce est partie
+1. La pièce éliminée s'il y en a une
+1. Une situation spéciale s'il y en a une
 
 Pour les informations 2 a 5 il s'agit d'une modélisation simple comme explique dans le point `Explication des choix "simples"` donc on ne va pas s'attarder là-dessus.
 
